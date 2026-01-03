@@ -3,27 +3,35 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use crate::hfps::{BehaviorProfile, Threshold, Stimulus, Emission};
 
+/// Loads a behavior profile from a TOML file.
+/// 
+/// This function handles the conversion from the human-readable TOML format
+/// (where channels are strings like "Security") to the internal indexed format
+/// (where channels are usize indices 0-3).
+///
+/// # Panics
+/// Panics if the file cannot be read or if the TOML syntax is invalid.
 pub fn load_profile(path: &str) -> Arc<BehaviorProfile> {
     let content = fs::read_to_string(path)
-        .expect(&format!("Erro ao abrir o arquivo: {}", path));
+        .expect(&format!("Error opening profile file: {}", path));
     
-    // Usamos um struct temporário para carregar do TOML (que usa nomes de canais)
+    // Temporary struct to deserialize textual keys from TOML.
     #[derive(serde::Deserialize)]
     struct RawProfile {
         name: String,
         sensitivity: HashMap<String, f32>,
         decay_rates: HashMap<String, f32>,
-        adaptation_rates: HashMap<String, f32>, // Novo campo Fase 4
+        adaptation_rates: HashMap<String, f32>,
         thresholds: Vec<Threshold>,
         listeners: Vec<Stimulus>,
         emissions: Vec<Emission>,
     }
 
-    let raw: RawProfile = toml::from_str(&content).expect("Erro no TOML");
+    let raw: RawProfile = toml::from_str(&content).expect("Error parsing TOML syntax");
 
     let mut sensitivity = [1.0; 4];
     let mut decay_rates = [0.1; 4];
-    let mut adaptation_rates = [0.0; 4]; // Padrão: Sem adaptação
+    let mut adaptation_rates = [0.0; 4]; // Default: No adaptation
 
     let chan_map = [
         ("Vitality", 0), ("Security", 1), ("Dominance", 2), ("Engagement", 3)
@@ -45,7 +53,7 @@ pub fn load_profile(path: &str) -> Arc<BehaviorProfile> {
         emissions: raw.emissions,
     };
 
-    // Hashing uma única vez
+    // Pre-calculate hashes for faster runtime comparison.
     for stimulus in &mut profile.listeners {
         stimulus.event_hash = crate::hfps::calculate_hash(&stimulus.event_name);
     }

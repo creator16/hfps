@@ -99,12 +99,23 @@ flag = 4         # FLAG_FLEEING
 
 ---
 
-## 🔮 Roadmap: The Future
+## 🧪 Work In Progress & Contributions
 
-*   **Swarm Intelligence:** Advanced group coordination tactics.
-*   **Spatial Awareness:** Raycasting integrated into pressure channels (Sight).
-*   **Tool Usage:** Agents learning to use objects to relieve pressure.
-*   **Industrialization:** C FFI bindings for integration with Unity/Unreal.
+**HFPS is an evolving research project.**
+We strongly encourage forks, modifications, and pull requests.
+
+### Current Limitations
+1.  **Serialization:** The `.dna` format is simple JSON but likely needs a more robust binary format for large swarms.
+2.  **Multithreading:** While `SoA` is ready for SIMD, we haven't implemented `Rayon` for parallel agent updates yet.
+3.  **Bindings:** Currently only runs in Rust. We need C-bindings to export `hfps.dll` for Unity/Unreal/Godot.
+
+### How to Contribute
+1.  Fork the repo.
+2.  Create a branch for your feature (`git checkout -b feature/swarm-logic`).
+3.  Implement your changes (e.g., adding a `Reproduction` system).
+4.  Submit a Pull Request.
+
+> *"We are building the anatomy, not the script."*
 
 ---
 

@@ -1,0 +1,39 @@
+name = "Lobo Caçador"
+
+[sensitivity]
+Security = 0.5
+Dominance = 2.0
+
+[decay_rates]
+Vitality = 0.5
+Security = 1.0
+Dominance = 1.2
+Engagement = 1.0
+
+[adaptation_rates]
+Dominance = 0.3 # O lobo perde o foco se a caça durar muito tempo sem sucesso.1
+
+[[thresholds]]
+channel = "Dominance"
+value = 20.0
+flag = 2 # FLAG_AGGRESSIVE
+
+# O Lobo agora sabe o que é "FOGO" e "PRESA"
+[[listeners]]
+event_name = "fogo_proximo"
+channel = "Security"
+power = -10.0
+radius = 300.0
+
+[[listeners]]
+event_name = "ovelha_avistada"
+channel = "Dominance"
+power = 30.0
+radius = 500.0
+
+# Se o lobo estiver caçando (Flag 2), ele emite aura de predador
+[[emissions]]
+flag = 2
+event_name = "lobo_presente"
+power = 1.0
+radius = 400.0

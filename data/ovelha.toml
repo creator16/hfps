@@ -1,0 +1,48 @@
+name = "Presa Calma"
+
+[sensitivity]
+Dominance = 0.2
+Security = 10.0
+Engagement = 1.5
+Vitality = 1.0
+
+[decay_rates]
+Vitality = 0.2
+Security = 1.5 # Agora o medo some mais rápido, permitindo que você veja o ciclo: Medo -> Fuga -> Habituação -> Indiferença (Cor Cinza).
+Dominance = 0.1
+Engagement = 0.5
+
+[adaptation_rates]
+Security = 0.1 # Habituação gradual: Precisa de estresse repetido para aprender.
+
+[[thresholds]]
+channel = "Security"
+value = -40.0
+flag = 4 # FLAG_FLEEING
+
+[[listeners]]
+event_name = "fogo_proximo"
+channel = "Security"
+power = -10.0
+radius = 800.0
+
+# EFEITO MANADA: Se ouvir outra ovelha em pânico, ela também se assusta
+[[listeners]]
+event_name = "ovelha_em_panico"
+channel = "Security"
+power = -8.0
+radius = 300.0
+
+# Se a ovelha estiver fugindo (Flag 4), ela emite o evento de pânico para as vizinhas
+[[emissions]]
+flag = 4
+event_name = "ovelha_em_panico"
+power = 1.0
+radius = 150.0
+
+# Ovelha tem medo da aura do lobo caçador
+[[listeners]]
+event_name = "lobo_presente"
+channel = "Security"
+power = -15.0
+radius = 400.0

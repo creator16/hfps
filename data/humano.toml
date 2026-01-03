@@ -1,0 +1,39 @@
+name = "Humano"
+
+[sensitivity]
+Vitality = 1.0
+Security = 2.0   # Muito sensível ao pânico social
+Dominance = 1.0
+Engagement = 1.0
+
+[decay_rates]
+Vitality = 0.1
+Security = 0.5
+Dominance = 1.0
+Engagement = 0.8
+
+[adaptation_rates]
+Security = 0.02 # Demora a se habituar ao perigo real
+
+[[thresholds]]
+channel = "Security"
+value = -30.0
+flag = 4 # FLAG_FLEEING (Panico)
+
+[[listeners]]
+event_name = "fogo"
+channel = "Security"
+power = -40.0
+radius = 400.0
+
+[[listeners]]
+event_name = "humano_em_panico"
+channel = "Security"
+power = -15.0  # O pânico se espalha!
+radius = 150.0
+
+[[emissions]]
+flag = 4 # FLAG_FLEEING
+event_name = "humano_em_panico"
+power = 20.0
+radius = 200.0

@@ -1,5 +1,5 @@
 # HFPS: Homeostatic Fluidic Pulse System
-### The Anatomical Alternative to Neural Networks (v7.0)
+### A High-Performance Anatomical Intelligence Machine (v7.0)
 
 ![Rust](https://img.shields.io/badge/Language-Rust-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
@@ -7,22 +7,20 @@
 
 > *"The complexity of life does not require complex hardware. It requires efficient flow."*
 
-HFPS is a high-performance, data-oriented AI engine designed to simulate complex emergent behaviors through **fluidic pressure propagation** rather than traditional decision trees or neural networks. It is designed to model massive crowods and organic ecosystems with $O(1)$ complexity.
+HFPS is a high-performance, data-oriented AI engine designed to simulate complex emergent behaviors through **fluidic pressure propagation**. Unlike traditional AI approaches, HFPS models agents as physiological entities that respond to environmental pulses, allowing for the simulation of massive crowds and organic ecosystems with $O(1)$ complexity.
 
 ---
 
 ## 🔬 Core Philosophy: Anatomical Intelligence
 
-The world of AI is obsessed with statistics (Deep Learning). HFPS takes a different approach: **Biology & Physics**.
-Instead of training a neural network to *guess* what an agent should do, HFPS gives the agent an *anatomy* and lets the laws of pressure dictate behavior.
+HFPS operates on a fundamental belief: **Behavior is a sub-product of anatomy and physics.** 
 
-| Feature | Deep Learning (LLMs/RL) | HFPS (Fluidic Core) |
-| :--- | :--- | :--- |
-| **Logic** | Matrix Multiplication | Fluid Pressure |
-| **Training** | Offline (GPU Heavy) | Real-time Adaptation (CPU) |
-| **Memory** | Weights & Biases | Neuroplasticity & DNA |
-| **Hardware** | Heavy (Needs GPU) | Light (Runs on Watch) |
-| **Throughput** | ~Heavy | **2000+ Agents @ 60FPS** |
+Instead of treating AI as a black box of probabilistic weights, HFPS treats it as a biological system. We don't "train" a model to decide what to do; we build an anatomy with pressure channels and let the laws of physics dictate the emergent response. This creates a type of intelligence that is fundamentally deterministic, auditable, and extremely fast.
+
+### Why Anatomical AI?
+- **Determinism:** If you know the pressure levels and the stimulus, you know the result. No "hallucinations".
+- **Authenticity:** Behavior feels organic because it's governed by homeostasis (recovery and decay).
+- **Efficiency:** Arithmetic over matrices. It runs on everything from microcontrollers to high-end servers.
 
 ---
 
@@ -122,5 +120,7 @@ We strongly encourage forks, modifications, and pull requests.
 ## 📄 License
 
 This project is open-source under the **MIT License**.
+
+---
 
 *Created with ❤️ for the Open Source Community.*

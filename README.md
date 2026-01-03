@@ -111,4 +111,5 @@ flag = 4         # FLAG_FLEEING
 ## 📄 License
 
 This project is open-source under the **MIT License**.
-*Created by Edward & Antigravity.*
+
+*Created with ❤️ for the Open Source Community.*
